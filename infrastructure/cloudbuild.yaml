@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'for entry in ./dag_files/*; do gcloud composer environments storage dags import --environment=composerdev --location=europe-west3 --source "$entry"; done'
